@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import com.cms.test.bean.User;
-import com.cms.test.service.UserTestService;
-import com.itextpdf.text.log.Logger;
+import com.cms.demo.bean.User;
+import com.cms.demo.service.UserTestService;
 
 @Controller
 public class LoginAction {
@@ -55,7 +54,7 @@ public class LoginAction {
     	User usr = new User();
 		usr.setId("111111");
 		usr.setName("3333bbb");
-    	userTestService.testInsert(usr);
+    	userTestService.insert(usr);
     	
         return "test";
     }
