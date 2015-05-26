@@ -1,6 +1,8 @@
-package com.cms.test.bean;
+package com.cms.demo.bean;
 
-public class User {
+import com.cms.base.bean.BaseAppTO;
+
+public class User extends BaseAppTO{
     private String id;
 
     private String name;
