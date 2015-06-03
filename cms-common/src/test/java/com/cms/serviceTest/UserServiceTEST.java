@@ -13,6 +13,7 @@ public class UserServiceTEST extends AbstractServiceForTesting{
 	
 	@Test
 	public void test(){
+		//AA
 		User usr = new User();
 		usr.setId("gaoshan3333");
 		usr.setName("gaoshan1111");
