@@ -24,7 +24,7 @@
     delete from cpcate
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cms.model.CpCate" >
+  <insert id="insert" parameterType="com.cms.model.bean.CpCate" >
     insert into cpcate (ID, catename, navid, 
       catelink, ordernum, createtime, 
       modifytime, editor)
@@ -32,7 +32,7 @@
       #{catelink,jdbcType=VARCHAR}, #{ordernum,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
       #{modifytime,jdbcType=TIMESTAMP}, #{editor,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cms.model.CpCate" >
+  <insert id="insertSelective" parameterType="com.cms.model.bean.CpCate" >
     insert into cpcate
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cms.model.CpCate" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cms.model.bean.CpCate" >
     update cpcate
     <set >
       <if test="catename != null" >
@@ -114,7 +114,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cms.model.CpCate" >
+  <update id="updateByPrimaryKey" parameterType="com.cms.model.bean.CpCate" >
     update cpcate
     set catename = #{catename,jdbcType=VARCHAR},
       navid = #{navid,jdbcType=INTEGER},

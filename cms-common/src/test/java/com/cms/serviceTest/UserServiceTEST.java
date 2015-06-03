@@ -1,12 +1,7 @@
 package com.cms.serviceTest;
 
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.cms.demo.bean.User;
-import com.cms.demo.service.UserTestService;
-
-public class UserServiceTEST extends AbstractServiceForTesting{
+public class UserServiceTEST extends AbstractServiceForTesting{/*
 	
 	@Autowired
 	protected UserTestService userTestService;
@@ -20,4 +15,4 @@ public class UserServiceTEST extends AbstractServiceForTesting{
 		userTestService.insert(usr);
 	}
 
-}
+*/}

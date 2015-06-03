@@ -13,11 +13,11 @@
             http://cxf.apache.org/jaxws
             http://cxf.apache.org/schemas/jaxws.xsd">
 
-	<context:component-scan base-package="com.cms"/>  
+	<context:component-scan base-package="com.cms.model.service"/>  
 
 	<bean id="memDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test?allowMultiQueries=true&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/cms?allowMultiQueries=true&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
         <property name="user" value="root" />
         <property name="password" value="root" />
         <property name="maxPoolSize" value="40" />

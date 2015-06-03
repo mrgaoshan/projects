@@ -24,7 +24,7 @@
     delete from newscate
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cms.model.NewsCate" >
+  <insert id="insert" parameterType="com.cms.model.bean.NewsCate" >
     insert into newscate (ID, catename, navid, 
       catelink, ordernum, createtime, 
       modifytime, editor)
@@ -32,7 +32,7 @@
       #{catelink,jdbcType=VARCHAR}, #{ordernum,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
       #{modifytime,jdbcType=TIMESTAMP}, #{editor,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cms.model.NewsCate" >
+  <insert id="insertSelective" parameterType="com.cms.model.bean.NewsCate" >
     insert into newscate
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cms.model.NewsCate" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cms.model.bean.NewsCate" >
     update newscate
     <set >
       <if test="catename != null" >
@@ -114,7 +114,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cms.model.NewsCate" >
+  <update id="updateByPrimaryKey" parameterType="com.cms.model.bean.NewsCate" >
     update newscate
     set catename = #{catename,jdbcType=VARCHAR},
       navid = #{navid,jdbcType=INTEGER},

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cms.base.bean.BaseAppTO;
 import com.cms.base.mapper.BaseAppMapper;
+import com.cms.model.bean.Pager;
 import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
 
 /**
@@ -67,6 +68,17 @@ public class BaseAppService<T extends BaseAppMapper> implements Serializable {
 
 	public int updateByPrimaryKey(BaseAppTO record) {
 		return mapper.updateByPrimaryKey(record);
+	}
+
+	public Pager<BaseAppTO> pageList(Pager<BaseAppTO> pager) {
+
+		Integer toalNum = mapper.totalNum();
+		
+		pager.setTotalNum(toalNum);
+
+		pager.setResultList(mapper.pageList(pager));
+
+		return pager;
 	}
 
 }

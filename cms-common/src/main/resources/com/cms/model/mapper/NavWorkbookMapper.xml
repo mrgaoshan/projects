@@ -20,13 +20,13 @@
     delete from navworkbook
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cms.model.NavWorkbook" >
+  <insert id="insert" parameterType="com.cms.model.bean.NavWorkbook" >
     insert into navworkbook (ID, navtype, navlink, 
       navattr)
     values (#{id,jdbcType=INTEGER}, #{navtype,jdbcType=VARCHAR}, #{navlink,jdbcType=VARCHAR}, 
       #{navattr,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cms.model.NavWorkbook" >
+  <insert id="insertSelective" parameterType="com.cms.model.bean.NavWorkbook" >
     insert into navworkbook
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cms.model.NavWorkbook" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cms.model.bean.NavWorkbook" >
     update navworkbook
     <set >
       <if test="navtype != null" >
@@ -72,7 +72,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cms.model.NavWorkbook" >
+  <update id="updateByPrimaryKey" parameterType="com.cms.model.bean.NavWorkbook" >
     update navworkbook
     set navtype = #{navtype,jdbcType=VARCHAR},
       navlink = #{navlink,jdbcType=VARCHAR},

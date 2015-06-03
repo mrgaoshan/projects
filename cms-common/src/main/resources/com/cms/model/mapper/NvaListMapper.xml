@@ -161,4 +161,14 @@
       modifytime = #{modifytime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="totalNum" resultType="java.lang.Integer" >
+    select count(*) from navlist
+  </select>
+  
+   <select id="pageList" resultMap="BaseResultMap" parameterType="com.cms.model.bean.Pager" >
+    select 
+    <include refid="Base_Column_List" />
+    from navlist LIMIT #{startNum,jdbcType=INTEGER},#{endNum,jdbcType=INTEGER}
+  </select>
 </mapper>

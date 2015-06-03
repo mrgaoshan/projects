@@ -16,7 +16,7 @@
     <result column="readtimes" property="readtimes" jdbcType="INTEGER" />
     <result column="ordernum" property="ordernum" jdbcType="INTEGER" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="cms.model.CpDetail" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.cms.model.bean.CpDetail" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -38,7 +38,7 @@
     delete from cpdetail
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cms.model.CpDetail" >
+  <insert id="insert" parameterType="com.cms.model.bean.CpDetail" >
     insert into cpdetail (ID, cateid, navid, 
       title, memo, leadimage, 
       images, createtime, modifytime, 
@@ -50,7 +50,7 @@
       #{editor,jdbcType=VARCHAR}, #{releaseflag,jdbcType=TINYINT}, #{readtimes,jdbcType=INTEGER}, 
       #{ordernum,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cms.model.CpDetail" >
+  <insert id="insertSelective" parameterType="com.cms.model.bean.CpDetail" >
     insert into cpdetail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -141,7 +141,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cms.model.CpDetail" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cms.model.bean.CpDetail" >
     update cpdetail
     <set >
       <if test="cateid != null" >
@@ -186,7 +186,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cms.model.CpDetail" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cms.model.bean.CpDetail" >
     update cpdetail
     set cateid = #{cateid,jdbcType=INTEGER},
       navid = #{navid,jdbcType=INTEGER},
@@ -203,7 +203,7 @@
       content = #{content,jdbcType=LONGVARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cms.model.CpDetail" >
+  <update id="updateByPrimaryKey" parameterType="com.cms.model.bean.CpDetail" >
     update cpdetail
     set cateid = #{cateid,jdbcType=INTEGER},
       navid = #{navid,jdbcType=INTEGER},

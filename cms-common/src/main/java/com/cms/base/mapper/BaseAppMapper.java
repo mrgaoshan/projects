@@ -6,6 +6,8 @@ package com.cms.base.mapper;
 import java.util.List;
 
 import com.cms.base.bean.BaseAppTO;
+import com.cms.model.bean.NvaList;
+import com.cms.model.bean.Pager;
 
 
 /**
@@ -32,5 +34,9 @@ public interface BaseAppMapper {
     int updateByPrimaryKeySelective(BaseAppTO record);
 
     int updateByPrimaryKey(BaseAppTO record);
+    
+    public List<BaseAppTO> pageList(Pager<BaseAppTO> obj);
+	
+	public Integer totalNum();
 
 }
