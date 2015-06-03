@@ -3,6 +3,7 @@
  */
 package com.cms.base.bean;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import org.apache.commons.logging.Log;
@@ -14,7 +15,7 @@ import org.apache.commons.logging.LogFactory;
  * @author kasimodo
  *
  */
-public class BaseAppTO {
+public class BaseAppTO implements Serializable{
 	private static final Log log = LogFactory.getLog(BaseAppTO.class);
 	private String crtBy_m;
 	private Timestamp crtOn_dt;

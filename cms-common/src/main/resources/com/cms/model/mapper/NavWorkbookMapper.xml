@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.model.mapper.NavWorkbookMapper" >
+  <resultMap id="BaseResultMap" type="com.cms.model.bean.NavWorkbook" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="navtype" property="navtype" jdbcType="VARCHAR" />
+    <result column="navlink" property="navlink" jdbcType="VARCHAR" />
+    <result column="navattr" property="navattr" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, navtype, navlink, navattr
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from navworkbook
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from navworkbook
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cms.model.NavWorkbook" >
+    insert into navworkbook (ID, navtype, navlink, 
+      navattr)
+    values (#{id,jdbcType=INTEGER}, #{navtype,jdbcType=VARCHAR}, #{navlink,jdbcType=VARCHAR}, 
+      #{navattr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cms.model.NavWorkbook" >
+    insert into navworkbook
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="navtype != null" >
+        navtype,
+      </if>
+      <if test="navlink != null" >
+        navlink,
+      </if>
+      <if test="navattr != null" >
+        navattr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="navtype != null" >
+        #{navtype,jdbcType=VARCHAR},
+      </if>
+      <if test="navlink != null" >
+        #{navlink,jdbcType=VARCHAR},
+      </if>
+      <if test="navattr != null" >
+        #{navattr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cms.model.NavWorkbook" >
+    update navworkbook
+    <set >
+      <if test="navtype != null" >
+        navtype = #{navtype,jdbcType=VARCHAR},
+      </if>
+      <if test="navlink != null" >
+        navlink = #{navlink,jdbcType=VARCHAR},
+      </if>
+      <if test="navattr != null" >
+        navattr = #{navattr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cms.model.NavWorkbook" >
+    update navworkbook
+    set navtype = #{navtype,jdbcType=VARCHAR},
+      navlink = #{navlink,jdbcType=VARCHAR},
+      navattr = #{navattr,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
