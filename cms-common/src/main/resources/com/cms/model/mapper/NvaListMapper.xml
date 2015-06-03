@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.model.mapper.NvaListMapper" >
+  <resultMap id="BaseResultMap" type="com.cms.model.bean.NvaList" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="navid" property="navid" jdbcType="INTEGER" />
+    <result column="navname" property="navname" jdbcType="VARCHAR" />
+    <result column="navlink" property="navlink" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="parentnavid" property="parentnavid" jdbcType="INTEGER" />
+    <result column="ordernum" property="ordernum" jdbcType="INTEGER" />
+    <result column="showflag" property="showflag" jdbcType="TINYINT" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="showmain" property="showmain" jdbcType="TINYINT" />
+    <result column="modifytime" property="modifytime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, navid, navname, navlink, level, parentnavid, ordernum, showflag, createtime, 
+    showmain, modifytime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from navlist
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from navlist
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cms.model.bean.NvaList" >
+    insert into navlist (ID, navid, navname, 
+      navlink, level, parentnavid, 
+      ordernum, showflag, createtime, 
+      showmain, modifytime)
+    values (#{id,jdbcType=INTEGER}, #{navid,jdbcType=INTEGER}, #{navname,jdbcType=VARCHAR}, 
+      #{navlink,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{parentnavid,jdbcType=INTEGER}, 
+      #{ordernum,jdbcType=INTEGER}, #{showflag,jdbcType=TINYINT}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{showmain,jdbcType=TINYINT}, #{modifytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cms.model.bean.NvaList" >
+    insert into navlist
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="navid != null" >
+        navid,
+      </if>
+      <if test="navname != null" >
+        navname,
+      </if>
+      <if test="navlink != null" >
+        navlink,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="parentnavid != null" >
+        parentnavid,
+      </if>
+      <if test="ordernum != null" >
+        ordernum,
+      </if>
+      <if test="showflag != null" >
+        showflag,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="showmain != null" >
+        showmain,
+      </if>
+      <if test="modifytime != null" >
+        modifytime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="navid != null" >
+        #{navid,jdbcType=INTEGER},
+      </if>
+      <if test="navname != null" >
+        #{navname,jdbcType=VARCHAR},
+      </if>
+      <if test="navlink != null" >
+        #{navlink,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="parentnavid != null" >
+        #{parentnavid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null" >
+        #{ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="showflag != null" >
+        #{showflag,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="showmain != null" >
+        #{showmain,jdbcType=TINYINT},
+      </if>
+      <if test="modifytime != null" >
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cms.model.bean.NvaList" >
+    update navlist
+    <set >
+      <if test="navid != null" >
+        navid = #{navid,jdbcType=INTEGER},
+      </if>
+      <if test="navname != null" >
+        navname = #{navname,jdbcType=VARCHAR},
+      </if>
+      <if test="navlink != null" >
+        navlink = #{navlink,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="parentnavid != null" >
+        parentnavid = #{parentnavid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null" >
+        ordernum = #{ordernum,jdbcType=INTEGER},
+      </if>
+      <if test="showflag != null" >
+        showflag = #{showflag,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="showmain != null" >
+        showmain = #{showmain,jdbcType=TINYINT},
+      </if>
+      <if test="modifytime != null" >
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cms.model.bean.NvaList" >
+    update navlist
+    set navid = #{navid,jdbcType=INTEGER},
+      navname = #{navname,jdbcType=VARCHAR},
+      navlink = #{navlink,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      parentnavid = #{parentnavid,jdbcType=INTEGER},
+      ordernum = #{ordernum,jdbcType=INTEGER},
+      showflag = #{showflag,jdbcType=TINYINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      showmain = #{showmain,jdbcType=TINYINT},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
