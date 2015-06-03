@@ -6,14 +6,14 @@ package com.cms.model.service;
 import org.springframework.stereotype.Service;
 
 import com.cms.base.service.BaseAppService;
-import com.cms.demo.mapper.UserMapper;
+import com.cms.model.mapper.NvaListMapper;
 
 /**
  * @author kasimodo
  *
  */
 @Service("nvaListService")
-public class NvaListService extends BaseAppService<UserMapper>{
+public class NvaListService extends BaseAppService<NvaListMapper>{
 
 	/**
 	 * 

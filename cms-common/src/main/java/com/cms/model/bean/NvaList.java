@@ -2,7 +2,9 @@ package com.cms.model.bean;
 
 import java.util.Date;
 
-public class NvaList {
+import com.cms.base.bean.BaseAppTO;
+
+public class NvaList extends BaseAppTO{
     private Integer id;
 
     private Integer navid;

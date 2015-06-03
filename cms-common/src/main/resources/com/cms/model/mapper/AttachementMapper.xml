@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.model.mapper.AttachementMapper" >
+  <resultMap id="BaseResultMap" type="com.cms.model.bean.Attachement" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="objectId" property="objectid" jdbcType="INTEGER" />
+    <result column="ordernum" property="ordernum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, path, objectId, ordernum
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from attachement
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from attachement
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cms.model.bean.Attachement" >
+    insert into attachement (ID, path, objectId, 
+      ordernum)
+    values (#{id,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{objectid,jdbcType=INTEGER}, 
+      #{ordernum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cms.model.bean.Attachement" >
+    insert into attachement
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="path != null" >
+        path,
+      </if>
+      <if test="objectid != null" >
+        objectId,
+      </if>
+      <if test="ordernum != null" >
+        ordernum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="path != null" >
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="objectid != null" >
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null" >
+        #{ordernum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cms.model.bean.Attachement" >
+    update attachement
+    <set >
+      <if test="path != null" >
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="objectid != null" >
+        objectId = #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null" >
+        ordernum = #{ordernum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cms.model.bean.Attachement" >
+    update attachement
+    set path = #{path,jdbcType=VARCHAR},
+      objectId = #{objectid,jdbcType=INTEGER},
+      ordernum = #{ordernum,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
