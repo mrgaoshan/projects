@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cms.model.bean.NvaList;
+import com.cms.model.bean.NavList;
 import com.cms.model.bean.Pager;
-import com.cms.model.service.NvaListService;
+import com.cms.model.service.NavListService;
 
 @Controller
 public class PageNationTestActioin {
 	@Autowired
-	private NvaListService nvaListService;
+	private NavListService navListService;
 	
 	
 	@RequestMapping(value="/page")
@@ -29,12 +29,11 @@ public class PageNationTestActioin {
     		@RequestParam("iDisplayStart") int iDisplayStart,
     		@RequestParam("iDisplayLength") int iDisplayLength
     		){
-		Pager pager  = new Pager<NvaList>();
+		Pager pager  = new Pager<NavList>();
 		
 		pager.setPageSize(iDisplayLength);
 		pager.setStartNum(iDisplayStart);
-		
-		pager = nvaListService.pageList(pager);
+		pager = navListService.pageList(pager);
 		
         return pager.getJsonData().toString();
     }

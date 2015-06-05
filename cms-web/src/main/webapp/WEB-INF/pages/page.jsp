@@ -7,40 +7,46 @@
 <title>test page</title>
 <link rel="stylesheet" href="resources/css/jquery.dataTables.css">
 <script type="text/javascript" src="resources/js/jquery/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="resources/js/jquery/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery/jquery.dataTables.js"></script>
 </head>
 <script type="text/javascript">
 $(function () {
 
-$("#data-table").dataTable({
-    "sAjaxSource": "/pageNation.do",
-    "bProcessing": true,
-    "bFilter": false,
-    "bServerSide": true,
-    "bAutoWidth": true,
-    "aoColumns": [     
-		{ "sWidth": "8%", "sTitle": "navid", "sClass": "center", "mData": "navid", "bSortable": false },
-        { "sWidth": "8%", "sTitle": "navname", "sClass": "center", "mData": "navname", "bSortable": false },
-        { "sWidth": "8%", "sTitle": "navlink", "sClass": "center", "mData": "navlink", "bSortable": false }
-    ],
-    "aLengthMenu": [ 10, 20, 30 ],
-    "aaSorting": [],
-    "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-        
+getData();
 
-    },
-     "fnServerParams": function (aoData) {
-       
-    },
-    "fnInitComplete": function () {
-        
-    } 
-});
 
 });
+
+function getData(){
+	
+	$("#mytable").dataTable({
+	    "sAjaxSource": "/pageNation.do",
+	    "bProcessing": true,
+	    "bFilter": false,
+	    "bServerSide": true,
+	    "bAutoWidth": true,
+	    "aoColumns": [     
+			{ "sWidth": "8%", "sTitle": "navid", "sClass": "center", "mData": "navid", "bSortable": false },
+	        { "sWidth": "8%", "sTitle": "navname", "sClass": "center", "mData": "navname", "bSortable": false },
+	        { "sWidth": "8%", "sTitle": "navlink", "sClass": "center", "mData": "navlink", "bSortable": false }
+	    ],
+	    "aLengthMenu": [ 10, 20, 30 ],
+	    "aaSorting": [],
+	    "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+	    	
+		
+	    },
+	     "fnServerParams": function (aoData) {
+	    	
+	    },
+	    "fnInitComplete": function () {
+	    	
+	    } 
+	});
+}
 </script>
 <body>
-	<table id="data-table">
+	<table id="mytable">
 	</table>
 </body>
 </html>

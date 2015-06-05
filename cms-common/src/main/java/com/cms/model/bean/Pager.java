@@ -27,6 +27,8 @@ public class Pager<T> extends BaseAppTO {
 	
 	private List<T> resultList;
 	
+	//private String sEcho;
+	
 	public Pager(){
 		this.pageNumber=1;
 		this.pageSize=10;
@@ -86,16 +88,24 @@ public class Pager<T> extends BaseAppTO {
 	public void setResultList(List<T> resultList) {
 		this.resultList = resultList;
 	}
+		
 	
+	/*public String getsEcho() {
+		return sEcho;
+	}
+
+	public void setsEcho(String sEcho) {
+		this.sEcho = sEcho;
+	}*/
+
 	public JSONObject getJsonData(){
 		JSONObject jsonObject = new JSONObject();
 		
 		JSONArray jsonArray = JSONArray.fromObject(resultList);
 		jsonObject.accumulate("iTotalRecords", totalNum)
 				  .accumulate("iTotalDisplayRecords", totalNum)
-				  .accumulate("aaData", jsonArray)
-				  .accumulate("sEcho", 3);
-		
+				  .accumulate("aaData", jsonArray);
+				 	
 		return  jsonObject;
 	}
 	
