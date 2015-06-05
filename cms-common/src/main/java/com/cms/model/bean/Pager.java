@@ -2,7 +2,11 @@ package com.cms.model.bean;
 
 import java.util.List;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import com.cms.base.bean.BaseAppTO;
+import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
 
 public class Pager<T> extends BaseAppTO {
 
@@ -26,8 +30,8 @@ public class Pager<T> extends BaseAppTO {
 	public Pager(){
 		this.pageNumber=1;
 		this.pageSize=10;
-		this.setStartNum();
-		this.setEndNum();
+		//this.setStartNum();
+		//this.setEndNum();
 	}
 
 	public Integer getPageNumber() {
@@ -36,8 +40,8 @@ public class Pager<T> extends BaseAppTO {
 
 	public void setPageNumber(Integer pageNumber) {
 		this.pageNumber = null==pageNumber?1:pageNumber;
-		this.setStartNum();
-		this.setEndNum();
+		//this.setStartNum();
+		//this.setEndNum();
 	}
 
 	public Integer getPageSize() {
@@ -46,8 +50,8 @@ public class Pager<T> extends BaseAppTO {
 
 	public void setPageSize(Integer pageSize) {
 		this.pageSize = null==pageSize?10:pageSize;
-		this.setStartNum();
-		this.setEndNum();
+		//this.setStartNum();
+		//this.setEndNum();
 	}
 
 	public Integer getTotalNum() {
@@ -62,8 +66,9 @@ public class Pager<T> extends BaseAppTO {
 		return startNum;
 	}
 
-	public void setStartNum() {
-		this.startNum = (pageNumber-1)*pageSize;
+	public void setStartNum(Integer startNum) {
+		this.startNum = startNum;
+		this.setEndNum();
 	}
 
 	public Integer getEndNum() {
@@ -71,7 +76,7 @@ public class Pager<T> extends BaseAppTO {
 	}
 
 	public void setEndNum() {
-		this.endNum = pageNumber*pageSize;
+		this.endNum = startNum+pageSize;
 	}
 
 	public List<T> getResultList() {
@@ -82,6 +87,17 @@ public class Pager<T> extends BaseAppTO {
 		this.resultList = resultList;
 	}
 	
+	public JSONObject getJsonData(){
+		JSONObject jsonObject = new JSONObject();
+		
+		JSONArray jsonArray = JSONArray.fromObject(resultList);
+		jsonObject.accumulate("iTotalRecords", totalNum)
+				  .accumulate("iTotalDisplayRecords", totalNum)
+				  .accumulate("aaData", jsonArray)
+				  .accumulate("sEcho", 3);
+		
+		return  jsonObject;
+	}
 	
 
 }

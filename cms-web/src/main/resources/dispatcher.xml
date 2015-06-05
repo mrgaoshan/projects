@@ -32,11 +32,11 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
 
-    <mvc:interceptors>
-        <!-- 国际化拦截器 -->
+   <!--  <mvc:interceptors>
+        国际化拦截器
         <bean class="com.cms.web.filter.LanguageIntercepter" />
         <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
-    </mvc:interceptors>
+    </mvc:interceptors> -->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/" />

@@ -14,19 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import com.cms.demo.bean.User;
-import com.cms.demo.service.UserTestService;
-
 @Controller
 public class LoginAction {
 
     @Autowired
     private SessionLocaleResolver localeResolver;
     
-    @Autowired
-    private UserTestService userTestService;
+    
 
-    /**
+    /** 
      * 基于session的国际化，更换语言
      * @param request
      * @param locale
@@ -51,10 +47,10 @@ public class LoginAction {
 
     @RequestMapping(value="/login")
     public String login(){
-    	User usr = new User();
+    	/*User usr = new User();
 		usr.setId("111111");
 		usr.setName("3333bbb");
-    	userTestService.insert(usr);
+    	userTestService.insert(usr);*/
     	
         return "test";
     }
