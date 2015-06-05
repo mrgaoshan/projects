@@ -38,10 +38,10 @@ public class PageNationTest extends AbstractServiceForTesting{
 	
 	public static void main(String dd[]){
 		
-		List<NvaList> list = new ArrayList<NvaList>();
-		NvaList a1 = new NvaList();
+		List<NavList> list = new ArrayList<NavList>();
+		NavList a1 = new NavList();
 		a1.setLevel(2);
-		NvaList a2 = new NvaList();
+		NavList a2 = new NavList();
 		a2.setLevel(3);
 		list.add(a1);
 		list.add(a2);
