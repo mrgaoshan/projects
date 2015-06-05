@@ -1,6 +1,8 @@
 package com.cms.model.bean;
 
-public class NavWorkbook {
+import com.cms.base.bean.BaseAppTO;
+
+public class NavWorkbook extends BaseAppTO {
     private Integer id;
 
     private String navtype;

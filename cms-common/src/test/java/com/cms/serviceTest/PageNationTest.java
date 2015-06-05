@@ -8,30 +8,30 @@ import net.sf.json.JSONArray;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.cms.model.bean.NvaList;
+import com.cms.model.bean.NavList;
 import com.cms.model.bean.Pager;
-import com.cms.model.service.NvaListService;
+import com.cms.model.service.NavListService;
 
 public class PageNationTest extends AbstractServiceForTesting{
 	 
 
 	@Autowired
-	private NvaListService nvaListService;
+	private NavListService navListService;
 	
 	@Test
 	public void testPageNation(){
 		
-		Pager pager  = new Pager<NvaList>();
+		Pager pager  = new Pager<NavList>();
 		
 		pager.setPageNumber(2);
 		
-		pager = nvaListService.pageList(pager);
+		pager = navListService.pageList(pager);
 		
-		List<NvaList> list = pager.getResultList();
+		List<NavList> list = pager.getResultList();
 		
 		System.out.println("total number"+ pager.getTotalNum());
 		
-		for(NvaList item:list){
+		for(NavList item:list){
 			System.out.println("nave name"+ item.getNavname());
 		}
 	}

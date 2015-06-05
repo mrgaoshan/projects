@@ -11,9 +11,5 @@ import org.springframework.stereotype.Service;
 @Service("navWorkbookService")
 public class NavWorkbookService extends BaseAppService<NavWorkbookMapper>{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5112568525681235505L;
-
+	private static final long serialVersionUID = 3300811672028780416L;
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cms.model.mapper.NvaListMapper" >
-  <resultMap id="BaseResultMap" type="com.cms.model.bean.NvaList" >
+<mapper namespace="com.cms.model.mapper.NavListMapper" >
+  <resultMap id="BaseResultMap" type="com.cms.model.bean.NavList" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="navid" property="navid" jdbcType="INTEGER" />
     <result column="navname" property="navname" jdbcType="VARCHAR" />
@@ -28,7 +28,7 @@
     delete from navlist
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.cms.model.bean.NvaList" >
+  <insert id="insert" parameterType="com.cms.model.bean.NavList" >
     insert into navlist (ID, navid, navname, 
       navlink, level, parentnavid, 
       ordernum, showflag, createtime, 
@@ -38,7 +38,7 @@
       #{ordernum,jdbcType=INTEGER}, #{showflag,jdbcType=TINYINT}, #{createtime,jdbcType=TIMESTAMP}, 
       #{showmain,jdbcType=TINYINT}, #{modifytime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.cms.model.bean.NvaList" >
+  <insert id="insertSelective" parameterType="com.cms.model.bean.NavList" >
     insert into navlist
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cms.model.bean.NvaList" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cms.model.bean.NavList" >
     update navlist
     <set >
       <if test="navid != null" >
@@ -147,7 +147,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cms.model.bean.NvaList" >
+  <update id="updateByPrimaryKey" parameterType="com.cms.model.bean.NavList" >
     update navlist
     set navid = #{navid,jdbcType=INTEGER},
       navname = #{navname,jdbcType=VARCHAR},

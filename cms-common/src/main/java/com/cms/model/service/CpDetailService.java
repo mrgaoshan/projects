@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 @Service("cpDetailService")
 public class CpDetailService extends BaseAppService<CpDetailMapper>{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5112568525681235505L;
+	private static final long serialVersionUID = 6636511437882295245L;
+
 
 }

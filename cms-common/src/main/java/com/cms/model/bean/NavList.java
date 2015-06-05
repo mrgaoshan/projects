@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.cms.base.bean.BaseAppTO;
 
-public class NvaList extends BaseAppTO{
+public class NavList extends BaseAppTO{
     private Integer id;
 
     private Integer navid;

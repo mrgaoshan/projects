@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 @Service("newsCateService")
 public class NewsCateService extends BaseAppService<NewsCateMapper>{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5112568525681235505L;
+	private static final long serialVersionUID = 8860174092862158414L;
 
 }

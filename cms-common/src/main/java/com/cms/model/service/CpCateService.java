@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 @Service("cpCateService")
 public class CpCateService extends BaseAppService<CpCateMapper>{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5112568525681235505L;
+	private static final long serialVersionUID = 4031768247079319346L;
 
 }

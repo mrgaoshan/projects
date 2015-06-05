@@ -1,8 +1,10 @@
 package com.cms.model.bean;
 
+import com.cms.base.bean.BaseAppTO;
+
 import java.util.Date;
 
-public class CpDetail {
+public class CpDetail extends BaseAppTO {
     private Integer id;
 
     private Integer cateid;
